@@ -5,6 +5,8 @@ chown squid.squid $CACHE_DIR
 test -d "${CACHE_DIR}/00" || /usr/sbin/squid -z -F -N -S -f /etc/squid/squid.conf
 test -f /etc/squid/icons/host.gif && cp /etc/squid/icons/host.gif /usr/share/squid/icons/
 test -f /etc/squid/icons/host.js && cp /etc/squid/icons/host.js /usr/share/squid/icons/
+test -d /usr/share/squid/errors/ru -o -h /usr/share/squid/errors/ru || ln -sf en /usr/share/squid/errors/ru
+test -d /usr/share/squid/errors/ru-ru -o -h /usr/share/squid/errors/ru-ru  || ln -sf en /usr/share/squid/errors/ru-ru
 
 if [ $# -eq 0 ]; then
     /usr/sbin/squid -F -S -N -f /etc/squid/squid.conf
